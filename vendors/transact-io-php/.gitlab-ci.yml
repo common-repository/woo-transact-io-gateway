@@ -1,0 +1,11 @@
+image: node:6.7.0
+
+before_script:
+# if linux apply updates
+  - if [ -e /proc ]; then apt-get -y update; apt-get -yq install php5-common php5-cli; fi
+  - npm install
+
+
+all_tests:
+  script:
+    - npm run phplint
